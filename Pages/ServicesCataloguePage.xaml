@@ -1,0 +1,122 @@
+﻿<Page x:Class="RetrospektivaApp.Pages.ServicesCataloguePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RetrospektivaApp.Pages"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+       d:DesignHeight="450" d:DesignWidth="800"
+       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"   
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}" 
+        Title="Каталог"
+     IsVisibleChanged="PageIsVisibleChanged" 
+      >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0" 
+                   HorizontalAlignment="Stretch" 
+                  >
+            <StackPanel Orientation="Horizontal" Margin="20 5 5 5">
+
+                <TextBox Width="275" x:Name="TBoxSearch"   TextChanged="TBoxSearchTextChanged"
+                         materialDesign:HintAssist.Hint="наименование услуги" 
+                                materialDesign:HintAssist.HintOpacity=".26" 
+                         />
+            </StackPanel>
+
+           
+            <StackPanel Orientation="Horizontal"  Margin="20 5 5 5">
+
+                <ComboBox Width="275" 
+  x:Name="ComboSort"
+                           materialDesign:HintAssist.Hint="Сортировать по"
+  materialDesign:HintAssist.HintOpacity=".26"
+  SelectionChanged="ComboSortSelectionChanged" 
+                          Background="#FFF" >
+
+                    <ComboBoxItem Content="По возрастанию названия"/>
+                    <ComboBoxItem Content="По убыванию названия"/>
+                    <ComboBoxItem Content="По возрастанию минимальной стоимости"/>
+                    <ComboBoxItem Content="По убыванию  минимальной стоимости"/>
+                </ComboBox>
+            </StackPanel>
+            <TextBlock Grid.Row="1" x:Name="TextBlockBasketInfo" Width="200" HorizontalAlignment="Right" Margin="0 0 140 0" />
+            <materialDesign:Badged Grid.Row="1" HorizontalAlignment="Right" x:Name="BadgeBasketCount" VerticalAlignment="Center" Margin="2 0 10 0">
+                <Button  Width="auto"  Content="{materialDesign:PackIcon Kind=BasketUnfill}"  Visibility="Collapsed"
+                     x:Name="BtnBasket" Click="BtnBasket_Click"/>
+            </materialDesign:Badged>
+        </WrapPanel>
+        <ListBox x:Name="ListBoxProducts"  ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                 HorizontalAlignment="Stretch" 
+     SelectedValuePath="Id"   Grid.Row="1" Grid.Column="0"   SelectionMode="Multiple" HorizontalContentAlignment="Stretch"
+                >
+            <ListBox.ItemTemplate >
+                <DataTemplate >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="60"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="BtnBuy" Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                                        Grid.Column="2"  ToolTip="В корзину" Height="34" Visibility="{Binding GetVisibility}" Click="BtnBuy_Click" >
+                            <materialDesign:PackIcon    Kind="BasketFill"     />
+
+
+                        </Button>
+
+                        <StackPanel Grid.Column="0" HorizontalAlignment="Stretch">
+                            <TextBlock Margin="2" FontSize="16" Width="Auto" HorizontalAlignment="Stretch" >
+                                <TextBlock.Text >
+                                    <MultiBinding StringFormat="{}{0} | {1}">
+                                        <Binding Path="Category.Title"/>
+                                        <Binding Path="Title"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+                        <TextBlock  Width="120" HorizontalAlignment="Right" Grid.Column="1"  FontSize="16" VerticalAlignment="Center" FontWeight="Bold" Text="{Binding Price, StringFormat='c', ConverterCulture='ru'}"   />
+                    </Grid>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
+            <Button x:Name="BtnPrev" Style="{StaticResource MaterialDesignFlatButton}"
+                    Content="{materialDesign:PackIcon Kind=ArrowLeftBoldBox}" 
+  BorderThickness="0" Padding="0" 
+  VerticalContentAlignment="Center"
+  Width=" 25" Click="BtnPrev_Click"/>
+            <ListBox  x:Name="ListBoxPageCount" 
+    HorizontalAlignment="Right"
+    BorderThickness="0" 
+    SelectionChanged="ListBoxPageCount_SelectionChanged">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation='Horizontal'/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+            <Button x:Name="BtnNext" Style="{StaticResource MaterialDesignFlatButton}" 
+                    Content="{materialDesign:PackIcon Kind=ArrowRightBoldBox}" 
+  BorderThickness="0"  Padding="0"
+  VerticalContentAlignment="Center" 
+  Width="25" Click="BtnNext_Click"/>
+        </StackPanel>
+        <TextBlock Grid.Row="3" x:Name="TextBlockCount" />
+    </Grid>
+</Page>

@@ -1,0 +1,20 @@
+﻿RetrospektivaApp
+
+
+winexe
+C#
+.cs
+C:\Users\Main\Documents\ЗМК\ДИПЛОМ 2024\Кисляков\RetrospektivaApp\obj\Debug\
+RetrospektivaApp
+none
+false
+DEBUG;TRACE
+C:\Users\Main\Documents\ЗМК\ДИПЛОМ 2024\Кисляков\RetrospektivaApp\App.xaml
+18-485013396
+2-1221820886
+45-219202745
+302063305280
+Pages\AddProductPage.xaml;Pages\AddUserPage.xaml;Pages\BookingPage.xaml;Pages\CataloguePage.xaml;Pages\CategoriesPage.xaml;Pages\MyBookingPage.xaml;Pages\ProductsPage.xaml;Pages\ServicesCataloguePage.xaml;Pages\ServicesPage.xaml;Pages\ShowOrderPage.xaml;Pages\UsersPage.xaml;Windows\CategoryWindow.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;Windows\MyAccountWindow.xaml;Windows\NewOrderWindow.xaml;Windows\OrderTicketWindow.xaml;Windows\ServiceWindow.xaml;
+
+False
+
