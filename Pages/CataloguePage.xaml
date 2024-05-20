@@ -24,7 +24,7 @@
 
         </Grid.RowDefinitions>
         <WrapPanel Grid.Row="0" >
-            <TextBlock x:Name="TextBlockBasketInfo" Width="200" HorizontalAlignment="Right" Margin="0 0 140 0"  Visibility="Collapsed"/>
+            <TextBlock x:Name="TextBlockBasketInfo"  Width="200" HorizontalAlignment="Right" Margin="0 0 140 0"  Visibility="Collapsed"/>
             <materialDesign:Badged HorizontalAlignment="Right" x:Name="BadgeBasketCount" VerticalAlignment="Center" Margin="2 0 10 0">
                 <Button  Width="auto"  Content="{materialDesign:PackIcon Kind=BasketUnfill}"  Visibility="Collapsed"
                      x:Name="BtnBasket" Click="BtnBasket_Click"/>
@@ -34,7 +34,7 @@
         </WrapPanel>
 
 
-        <TabControl  Grid.Row="1"   materialDesign:ColorZoneAssist.Background="Crimson"  materialDesign:ColorZoneAssist.Foreground="White"  materialDesign:ColorZoneAssist.Mode="Custom"
+        <TabControl  Grid.Row="1"   materialDesign:ColorZoneAssist.Background="{StaticResource MaterialDesignDarkBackground}"  materialDesign:ColorZoneAssist.Foreground="White"  materialDesign:ColorZoneAssist.Mode="Custom"
   Style="{StaticResource MaterialDesignFilledTabControl}">
             <TabItem  Header="Антиквариат">
                 <Grid>
@@ -98,7 +98,6 @@
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition        Height="100" />
                                                     <RowDefinition        Height="*" />
-                                                   
                                                     <RowDefinition        Height="60" />
                                                     <RowDefinition        Height="60" />
                                                 </Grid.RowDefinitions>
@@ -110,18 +109,19 @@
                                                 Grid.Row="1" 
                                                 Height="300"                     
                                                 Stretch="Uniform" />
-                                        <Button Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{DynamicResource MaterialDesignFlatButton}"
+                                        <Button Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                Style="{DynamicResource MaterialDesignFlatDarkButton}"
                                     Content="{materialDesign:PackIcon Kind=ArrowLeft, Size=24}"
                                                 Click="Button_Click_1" 
                                                 Tag="{Binding ElementName=ImagePhoto}"           />
-                                        <Button Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{DynamicResource MaterialDesignFlatButton}"
+                                        <Button Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{DynamicResource MaterialDesignFlatDarkButton}"
                                     Content="{materialDesign:PackIcon Kind=ArrowRight, Size=24}" Click="Button_Click_2" Tag="{Binding ElementName=ImagePhoto}"
                                     />
                                         <TextBlock  Grid.Row="2" FontSize="30" HorizontalAlignment="Center" Height="60" FontWeight="Bold" 
                                                     Text="{Binding Price, StringFormat='c', ConverterCulture='ru-RU'}" />
 
                                                 <Button Width="184"  Margin="8" Grid.Row="3" Visibility="{Binding GetVisibility}"
-                                                                   Content="В КОРЗИНУ"  Style="{StaticResource MaterialDesignFlatButton}" Click="BtnAdd_Click" />
+                                                                   Content="В КОРЗИНУ"  Style="{StaticResource MaterialDesignFlatDarkButton}" Click="BtnAdd_Click" />
                                             </Grid>
                                 </materialDesign:Card  >
                             </DataTemplate>
@@ -217,7 +217,7 @@
                     </ListBox>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
-                        <Button x:Name="BtnPrev" Style="{StaticResource MaterialDesignFlatButton}"                    Content="{materialDesign:PackIcon Kind=ArrowLeftBoldBox}" 
+                        <Button x:Name="BtnPrev" Style="{StaticResource MaterialDesignFlatDarkButton}"                    Content="{materialDesign:PackIcon Kind=ArrowLeftBoldBox}" 
   BorderThickness="0" Padding="0"   VerticalContentAlignment="Center"  Width=" 25" Click="BtnPrev_Click"/>
                         <ListBox  x:Name="ListBoxPageCount"     HorizontalAlignment="Right"    BorderThickness="0"     SelectionChanged="ListBoxPageCount_SelectionChanged">
                             <ListBox.ItemsPanel>
@@ -226,7 +226,7 @@
                                 </ItemsPanelTemplate>
                             </ListBox.ItemsPanel>
                         </ListBox>
-                        <Button x:Name="BtnNext" Style="{StaticResource MaterialDesignFlatButton}" Content="{materialDesign:PackIcon Kind=ArrowRightBoldBox}" 
+                        <Button x:Name="BtnNext" Style="{StaticResource MaterialDesignFlatDarkButton}" Content="{materialDesign:PackIcon Kind=ArrowRightBoldBox}" 
   BorderThickness="0"  Padding="0"   VerticalContentAlignment="Center"   Width="25" Click="BtnNext_Click"/>
                     </StackPanel>
                     <TextBlock Grid.Row="3" x:Name="TextBlockServicesCount" />

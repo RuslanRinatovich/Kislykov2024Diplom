@@ -91,13 +91,13 @@ namespace RetrospektivaApp.Pages
 
                     range = paragraph.Range;
                     range.Font.Bold = 0;
-                    range.Text = $"Двери";
+                    range.Text = $"Антиквариат";
                     range.InsertParagraphAfter();
                     Word.Paragraph tableParagraph = document.Paragraphs.Add();
                     Word.Range tableRange = tableParagraph.Range;
 
 
-                    Word.Table table = document.Tables.Add(tableRange, ProductBasket.GetCount + 1, 6);
+                    Word.Table table = document.Tables.Add(tableRange, order.OrderProducts.Count + 1, 6);
                     //table.Range.Bold = 0;
                     table.Borders.InsideLineStyle = table.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
                     table.Range.Cells.VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
@@ -118,22 +118,24 @@ namespace RetrospektivaApp.Pages
                     table.Rows[1].Range.Bold = 1;
                     table.Rows[1].Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
                     int i = 0;
-                    foreach (var item in ProductBasket.GetBasket)
+                    double totalSum = 0;
+                    foreach (var item in order.OrderProducts)
                     {
                         cellRange = table.Cell(i + 2, 1).Range;
                         cellRange.Text = (i + 1).ToString();
                         cellRange = table.Cell(i + 2, 2).Range;
-                        cellRange.Text = item.Key.Title;
+                        cellRange.Text = item.Product.Title;
                         cellRange = table.Cell(i + 2, 3).Range;
-                        cellRange.Text = item.Key.Category.Title;
+                        cellRange.Text = item.Product.Category.Title;
                         cellRange = table.Cell(i + 2, 4).Range;
-                        cellRange.Text = item.Value.Count.ToString();
+                        cellRange.Text = item.Count.ToString();
                         cellRange = table.Cell(i + 2, 5).Range;
-                        cellRange.Text = item.Key.Price.ToString("f2");
+                        cellRange.Text = item.Product.Price.ToString("f2");
 
                         cellRange = table.Cell(i + 2, 6).Range;
-                        cellRange.Text = item.Value.Total.ToString("f2");
+                        cellRange.Text = item.Total.ToString("f2");
                         i++;
+                        totalSum += item.Total;
                     }
 
                     range.InsertParagraphAfter();
@@ -148,7 +150,7 @@ namespace RetrospektivaApp.Pages
                     tableRange = tableParagraph.Range;
 
 
-                    table = document.Tables.Add(tableRange, ServiceBasket.GetCount + 1, 6);
+                    table = document.Tables.Add(tableRange, order.OrderServices.Count + 1, 5);
                     //table.Range.Bold = 0;
                     table.Borders.InsideLineStyle = table.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
                     table.Range.Cells.VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
@@ -157,38 +159,35 @@ namespace RetrospektivaApp.Pages
                     cellRange.Text = "№";
                     cellRange = table.Cell(1, 2).Range;
                     cellRange.Text = "Наименование услуги";
+                  
                     cellRange = table.Cell(1, 3).Range;
-                    cellRange.Text = "Категория";
-                    cellRange = table.Cell(1, 4).Range;
                     cellRange.Text = "Количество";
-                    cellRange = table.Cell(1, 5).Range;
+                    cellRange = table.Cell(1, 4).Range;
                     cellRange.Text = "Стоимость";
 
-                    cellRange = table.Cell(1, 6).Range;
+                    cellRange = table.Cell(1, 5).Range;
                     cellRange.Text = "ИТОГО";
                     table.Rows[1].Range.Bold = 1;
                     table.Rows[1].Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
                     i = 0;
-                    foreach (var item in ServiceBasket.GetBasket)
+                    foreach (var item in order.OrderServices)
                     {
                         cellRange = table.Cell(i + 2, 1).Range;
                         cellRange.Text = (i + 1).ToString();
                         cellRange = table.Cell(i + 2, 2).Range;
-                        cellRange.Text = item.Key.Title;
+                        cellRange.Text = item.Service.Title;
                         cellRange = table.Cell(i + 2, 3).Range;
-                        cellRange.Text = item.Key.Title;
+                        cellRange.Text = item.Count.ToString();
                         cellRange = table.Cell(i + 2, 4).Range;
-                        cellRange.Text = item.Value.Count.ToString();
+                        cellRange.Text = Convert.ToInt32(item.Service.Price).ToString("f2");
                         cellRange = table.Cell(i + 2, 5).Range;
-                        cellRange.Text = Convert.ToInt32(item.Key.Price).ToString("f2");
-
-                        cellRange = table.Cell(i + 2, 6).Range;
-                        cellRange.Text = item.Value.Total.ToString("f2");
+                        cellRange.Text = item.Total.ToString("f2");
                         i++;
+                        totalSum += item.Total;
                     }
                     Word.Paragraph generalSumProduct = document.Paragraphs.Add();
                     Word.Range generalRange = generalSumProduct.Range;
-                    generalRange.Text = $"\nОбщая сумма заказа: {ProductBasket.GetTotalCost + ServiceBasket.GetTotalCost:f2} руб.";
+                    generalRange.Text = $"\nОбщая сумма заказа: {totalSum:f2} руб.";
                     document.SaveAs2($@"{path}", Word.WdExportFormat.wdExportFormatPDF);
                     MessageBox.Show("Заказ сохранен");
                 }

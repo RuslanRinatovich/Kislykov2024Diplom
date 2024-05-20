@@ -2,18 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RetrospektivaApp.Pages
 {
@@ -78,6 +69,10 @@ namespace RetrospektivaApp.Pages
 
                     // проверка, есть ли у товара в таблице о продажах связанные записи
                     // если да, то выбрасывается исключение и удаление прерывается
+                    foreach (var p in selected.OrderProducts)
+                    {
+                        p.Product.IsSold = false;
+                    }
                     DataEntities.GetContext().OrderProducts.RemoveRange(selected.OrderProducts);
                     DataEntities.GetContext().OrderServices.RemoveRange(selected.OrderServices);
 

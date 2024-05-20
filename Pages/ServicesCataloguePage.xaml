@@ -71,8 +71,9 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="60"/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="BtnBuy" Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
-                                        Grid.Column="2"  ToolTip="В корзину" Height="34" Visibility="{Binding GetVisibility}" Click="BtnBuy_Click" >
+                        <Button x:Name="BtnBuy" Style="{StaticResource MaterialDesignFlatDarkButton}"
+                                        Grid.Column="2"  ToolTip="В корзину" Height="34" Visibility="{Binding GetVisibility}" 
+                                Click="BtnBuy_Click" >
                             <materialDesign:PackIcon    Kind="BasketFill"     />
 
 
@@ -96,7 +97,7 @@
         </ListBox>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
-            <Button x:Name="BtnPrev" Style="{StaticResource MaterialDesignFlatButton}"
+            <Button x:Name="BtnPrev" Style="{StaticResource MaterialDesignFlatDarkButton}"
                     Content="{materialDesign:PackIcon Kind=ArrowLeftBoldBox}" 
   BorderThickness="0" Padding="0" 
   VerticalContentAlignment="Center"
@@ -111,7 +112,7 @@
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
             </ListBox>
-            <Button x:Name="BtnNext" Style="{StaticResource MaterialDesignFlatButton}" 
+            <Button x:Name="BtnNext" Style="{StaticResource MaterialDesignFlatDarkButton}" 
                     Content="{materialDesign:PackIcon Kind=ArrowRightBoldBox}" 
   BorderThickness="0"  Padding="0"
   VerticalContentAlignment="Center" 

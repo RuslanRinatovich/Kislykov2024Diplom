@@ -5,6 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RetrospektivaApp.Pages"
        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
@@ -18,6 +25,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
 
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
@@ -25,7 +33,7 @@
             <ColumnDefinition Width="245"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="BtnSave" Grid.Row="7" Content="Сохранить"  
+        <Button x:Name="BtnSave" Grid.Row="8" Content="Сохранить"  Style="{StaticResource MaterialDesignFlatDarkButton}"
                 HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" 
                 Click="BtnSaveClick" Grid.Column="1" Margin="213,3,222,0"/>
 
@@ -39,8 +47,8 @@
         <!--<Image x:Name="ImagePhoto" Source="{Binding GetPhoto}" 
                Grid.Row="0" Grid.Column="1" Margin="10 0 0 0"
                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />-->
-        <Button x:Name="BtnLoad" Grid.Row="0" Grid.Column="0" Margin="120,5,0,0" 
-                HorizontalAlignment="Left" VerticalAlignment="Top"
+        <Button x:Name="BtnLoad" Grid.Row="0" Grid.Column="0" Margin="120,5,0,0"  
+                HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFlatDarkButton}"
                 Click="BtnLoadClick" Content="{materialDesign:PackIcon Kind=ImageAdd}" Width="60"/>
 
         <TextBox x:Name="TextBoxTitle" Text="{Binding Title}" 
@@ -61,7 +69,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Image Margin="3" Source="{Binding GetPhoto}"/>
                         <Button x:Name="BtnDelete"  HorizontalAlignment="Right"
-                                Click="BtnDelete_Click" ToolTip="Удалить" Style="{StaticResource MaterialDesignFlatButton}"
+                                Click="BtnDelete_Click" ToolTip="Удалить" Style="{StaticResource MaterialDesignFlatDarkButton}"
                             Content="{materialDesign:PackIcon Kind=Trash}"/>
 
                     </StackPanel>
@@ -75,5 +83,10 @@
         <ComboBox x:Name="ComboCategory"  SelectedItem="{Binding Category}"
             Grid.Row="5" Grid.Column="1"  DisplayMemberPath="Title" 
             SelectedValuePath="Id"  />
+        <TextBlock Grid.Row="6" Grid.Column="0" Margin="20 0"
+                   Text="Продан" />
+        <ToggleButton Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left"
+    Style="{StaticResource MaterialDesignSwitchToggleButton}"
+  ToolTip="Default ToggleButton Style"  IsChecked="{Binding IsSold}"/>
     </Grid>
 </Page>

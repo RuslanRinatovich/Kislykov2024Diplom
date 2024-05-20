@@ -6,7 +6,13 @@
       xmlns:local="clr-namespace:RetrospektivaApp.Pages"
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
       Title="Мои заказы" IsVisibleChanged="PageIsVisibleChanged" >
     <Grid>
         <Grid.RowDefinitions>
@@ -52,14 +58,14 @@
                 <DataGridTemplateColumn Width="100" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="BtnShow"  Content="{materialDesign:PackIcon Kind=Eye}"  Style="{StaticResource MaterialDesignFlatButton}"  Margin="0" Click="BtnShow_Click"/>
+                            <Button x:Name="BtnShow"  Content="{materialDesign:PackIcon Kind=Eye}"  Style="{StaticResource MaterialDesignFlatDarkButton}"  Margin="0" Click="BtnShow_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="BtnDelete"  Click="BtnDeleteClick"   Style="{StaticResource MaterialDesignFlatButton}" Content="{materialDesign:PackIcon Kind=Delete}"  Margin="0"/>
+                            <Button x:Name="BtnDelete"  Click="BtnDeleteClick"   Style="{StaticResource MaterialDesignFlatDarkButton}" Content="{materialDesign:PackIcon Kind=Delete}"  Margin="0"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

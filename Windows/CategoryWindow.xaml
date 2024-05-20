@@ -6,6 +6,13 @@
         xmlns:local="clr-namespace:RetrospektivaApp.Windows"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Категория" Height="160" Width="400" 
 
     WindowStartupLocation="CenterScreen" >
@@ -19,8 +26,8 @@
 
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="2" Margin="127,0,103,0" Width="162">
-            <Button IsDefault="True"  MinWidth="60" Margin="5" Click="Button_Click">OK</Button>
-            <Button IsCancel="True" MinWidth="60" Margin="5">Отмена</Button>
+            <Button IsDefault="True"  MinWidth="60" Margin="5"  Style="{StaticResource MaterialDesignPaperDarkButton}"   Click="Button_Click">OK</Button>
+            <Button IsCancel="True" MinWidth="60"   Style="{StaticResource MaterialDesignPaperDarkButton}"   Margin="5">Отмена</Button>
         </StackPanel>
     </Grid>
 </Window>

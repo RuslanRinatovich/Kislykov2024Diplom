@@ -197,7 +197,7 @@ namespace RetrospektivaApp.Windows
                     orderService.OrderId = _currentOrder.Id;
                     orderService.DoorId = item.Key.Id;
                     orderService.Count = item.Value.Count;
-
+                    item.Key.IsSold = true;
                     DataEntities.GetContext().OrderProducts.Add(orderService);
                 }
                 foreach (var item in ServiceBasket.GetBasket)
@@ -209,6 +209,8 @@ namespace RetrospektivaApp.Windows
 
                     DataEntities.GetContext().OrderServices.Add(orderService);
                 }
+                
+
                 DataEntities.GetContext().SaveChanges();  // Сохраняем изменения в БД
                 // показываем талон заказа в новом окне 
                 OrderTicketWindow orderTicketWindow = new OrderTicketWindow(_currentOrder);

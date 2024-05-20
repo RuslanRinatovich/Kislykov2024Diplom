@@ -6,6 +6,13 @@
         xmlns:local="clr-namespace:RetrospektivaApp.Windows"
         mc:Ignorable="d"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
          xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
        Title="Услуга" Height="170" Width="400" 
 
@@ -18,12 +25,12 @@
         </Grid.RowDefinitions>
 
         <TextBox  VerticalAlignment="Center" x:Name="TbName" Text="{Binding Title}" Padding="5 0 0 0" Grid.Row="0" Height="30" Margin="0,5" materialDesign:HintAssist.Hint="Название" />
-        <TextBlock Text="Цена"  Grid.Row="1" VerticalAlignment="Center"/>
+        <TextBlock Text="Цена"  Grid.Row="1" VerticalAlignment="Center" Margin="10"/>
         <xctk:IntegerUpDown x:Name="IntegerUpDownPrice" HorizontalAlignment="Left" Margin="100 0 0 0"
                             Grid.Row="1"  Minimum="1" Width="100" Value="{Binding Price}"/>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="2" Margin="127,0,103,0" Width="162">
-            <Button IsDefault="True"  MinWidth="60" Margin="5" Click="Button_Click">OK</Button>
-            <Button IsCancel="True" MinWidth="60" Margin="5">Отмена</Button>
+            <Button IsDefault="True"  MinWidth="60" Margin="5" Click="Button_Click"  Style="{StaticResource MaterialDesignPaperDarkButton}" >OK</Button>
+            <Button IsCancel="True" MinWidth="60" Margin="5"  Style="{StaticResource MaterialDesignPaperDarkButton}" >Отмена</Button>
         </StackPanel>
     </Grid>
 </Window>

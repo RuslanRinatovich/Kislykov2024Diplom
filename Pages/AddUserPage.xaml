@@ -57,7 +57,7 @@
                  materialDesign:HintAssist.Hint="Пароль" Grid.Row="7" Height="30" />
 
 
-        <Button IsDefault="True" Click="BtnSaveClick" Width="120" Grid.Row="8" Margin="5"  Style="{StaticResource MaterialDesignFlatButton}" >Сохранить</Button>
+        <Button IsDefault="True" Click="BtnSaveClick" Width="120" Grid.Row="8" Margin="5"  Style="{StaticResource MaterialDesignFlatDarkButton}" >Сохранить</Button>
 
 
 

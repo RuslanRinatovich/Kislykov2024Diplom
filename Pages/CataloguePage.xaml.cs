@@ -59,7 +59,7 @@ namespace RetrospektivaApp.Pages
         void LoadData()
         {
 
-            List<Product> goods = DataEntities.GetContext().Products.OrderBy(p => p.Title).ToList();
+            List<Product> goods = DataEntities.GetContext().Products.Where(p=> p.IsSold == false).OrderBy(p => p.Title).ToList();
             LViewGoods.ItemsSource = goods;
             _itemcount = goods.Count;
             TextBlockCount.Text = $" Результат запроса: {goods.Count} записей из {goods.Count}";
@@ -154,7 +154,7 @@ namespace RetrospektivaApp.Pages
             // получаем текущие данные из бд
             //var currentGoods = DataBDEntities.GetContext().Abonements.OrderBy(p => p.CategoryTrainer.Trainer.LastName).ToList();
 
-            var currentData = DataEntities.GetContext().Products.OrderBy(p => p.Title).ToList();
+            var currentData = DataEntities.GetContext().Products.Where(p => p.IsSold == false).OrderBy(p => p.Title).ToList();
             // выбор только тех товаров, которые принадлежат данному производителю
 
             if (ComboCategory.SelectedIndex > 0)
@@ -284,6 +284,7 @@ namespace RetrospektivaApp.Pages
             // кнопка Корзина
             NewOrderWindow newOrderWindow = new NewOrderWindow();
             newOrderWindow.ShowDialog();
+            UpdateData();
             if (ProductBasket.GetCount > 0)
             {
                 BtnBasket.Visibility = Visibility.Visible;

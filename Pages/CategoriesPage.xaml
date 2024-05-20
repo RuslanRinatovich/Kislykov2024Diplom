@@ -6,6 +6,13 @@
       xmlns:local="clr-namespace:RetrospektivaApp.Pages"
       mc:Ignorable="d" 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
        Title="Категории" IsVisibleChanged="PageIsVisibleChanged" >
     <Grid>
         <Grid.RowDefinitions>
@@ -50,7 +57,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button x:Name="BtnEdit"  Content="{materialDesign:PackIcon Kind=Edit}" 
-                                     Style="{StaticResource MaterialDesignFlatButton}" 
+                                     Style="{StaticResource MaterialDesignFlatDarkButton}" 
                                     Click="BtnEdit_Click" Margin="0"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -58,7 +65,7 @@
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="BtnDelete"  Style="{StaticResource MaterialDesignFlatButton}" 
+                            <Button x:Name="BtnDelete"  Style="{StaticResource MaterialDesignFlatDarkButton}" 
                                     Content="{materialDesign:PackIcon Kind=Delete}" Click="BtnDeleteClick" Margin="0"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -68,7 +75,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock Grid.Row="2" x:Name="TextBlockCount" Width="300" HorizontalAlignment="Left" />
-        <Button x:Name="BtnAdd" Grid.Row="2" Width="100"  Style="{StaticResource MaterialDesignFlatButton}"  HorizontalAlignment="Right" Margin="3"
+        <Button x:Name="BtnAdd" Grid.Row="2" Width="100"  Style="{StaticResource MaterialDesignFlatDarkButton}"  HorizontalAlignment="Right" Margin="3"
                 Content="{materialDesign:PackIcon Kind=AddBold}" Click="BtnAddClick"/>
 
     </Grid>

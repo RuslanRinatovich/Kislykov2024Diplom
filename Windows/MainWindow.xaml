@@ -7,7 +7,13 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
                Title="{Binding ElementName=MainFrame, Path=Content.Title}" 
-        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
         Height="450" Width="800" 
         Closing="WindowClosing" WindowStartupLocation="CenterScreen" 
         Closed="WindowClosed" >
@@ -20,7 +26,7 @@
         <Grid/>
 
         <materialDesign:ColorZone    Padding="16"   ClipToBounds="False"
-    Mode="PrimaryMid">
+    Mode="Dark">
             <DockPanel >
                 <StackPanel     Orientation="Horizontal" DockPanel.Dock="Left" HorizontalAlignment="Left">
                     <Image Source="/RetrospektivaApp;component/Resources/rand_6200268.png" 
@@ -33,45 +39,46 @@
 
 
 
-                    <Button x:Name="BtnQuests"  Click="BtnQuests_Click"  Foreground="White"
-                            ToolTip="Двери" Style="{StaticResource MaterialDesignFlatButton}"
-                            Content="{materialDesign:PackIcon Kind=Door, Size=24}" Visibility="Collapsed"/>
+                    <Button x:Name="BtnQuests"  Click="BtnQuests_Click"  
+                            ToolTip="Антиквариат" Style="{StaticResource MaterialDesignFlatDarkButton}"
+                            Content="{materialDesign:PackIcon Kind=Art, Size=24}" Visibility="Collapsed"/>
 
-                    <Button x:Name="BtnServices"  Click="BtnServices_Click"  Foreground="White"
-                            ToolTip="Двери" Style="{StaticResource MaterialDesignFlatButton}"
+                    <Button x:Name="BtnServices"  Click="BtnServices_Click"  
+                            ToolTip="Услуги" Style="{StaticResource MaterialDesignFlatDarkButton}"
                             Content="{materialDesign:PackIcon Kind=ServiceToolbox, Size=24}" Visibility="Collapsed"/>
 
-                    <Button x:Name="BtnBooking"  Click="BtnBooking_Click" Visibility="Collapsed" Foreground="White"
-                            ToolTip="Заказы" Style="{StaticResource MaterialDesignFlatButton}"
+                    <Button x:Name="BtnBooking"  Click="BtnBooking_Click" Visibility="Collapsed" 
+                            ToolTip="Заказы" Style="{StaticResource MaterialDesignFlatDarkButton}"
                             Content="{materialDesign:PackIcon Kind=BookAccount, Size=24}" />
 
 
-                    <Button x:Name="BtnUsers"  Click="BtnUsers_Click" ToolTip="Пользователи" Foreground="White"
-                             Style="{StaticResource MaterialDesignFlatButton}" Visibility="Collapsed"
+                    <Button x:Name="BtnUsers"  Click="BtnUsers_Click" ToolTip="Пользователи" 
+                             Style="{StaticResource MaterialDesignFlatDarkButton}" Visibility="Collapsed"
                             Content="{materialDesign:PackIcon Kind=People, Size=24}"
                            />
 
 
                     <Button x:Name="BtnMyBooking"  Click="BtnMyOrders_Click" Visibility="Collapsed"
-                            ToolTip="Мои брони" Foreground="White"
-                            Style="{StaticResource MaterialDesignFlatButton}"
+                            ToolTip="Мои брони" 
+                            Style="{StaticResource MaterialDesignFlatDarkButton}"
                             Content="{materialDesign:PackIcon Kind=Book, Size=24}"
                             />
 
-                    <Button x:Name="BtnBack"  Click="BtnBackClick" ToolTip="Назад" Foreground="White"  Visibility="Collapsed" Style="{StaticResource MaterialDesignFlatButton}"
+                    <Button x:Name="BtnBack"  Click="BtnBackClick" ToolTip="Назад" 
+                            Visibility="Collapsed" Style="{StaticResource MaterialDesignFlatDarkButton}"
                             Content="{materialDesign:PackIcon Kind=ArrowBack, Size=24}"/>
 
 
                 </StackPanel>
                 <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
 
-                    <Button x:Name="BtnMyAccount"  Click="BtnMyAccount_Click" ToolTip="Мой профиль" Foreground="White"
-                             Style="{StaticResource MaterialDesignFlatButton}" Visibility="Collapsed"
+                    <Button x:Name="BtnMyAccount"  Click="BtnMyAccount_Click" ToolTip="Мой профиль" 
+                             Style="{StaticResource MaterialDesignFlatDarkButton}" Visibility="Collapsed"
                             Content="{materialDesign:PackIcon Kind=Account, Size=24}"
                            />
                     <TextBlock x:Name="TextBlockUser" VerticalAlignment="Center" Style="{StaticResource MaterialDesignHeadline6TextBlock}"/>
                     <Button x:Name="BtnEnter"  Click="BtnEnter_Click"
-                            ToolTip="Войти" Style="{StaticResource MaterialDesignFlatButton}" Foreground="White"
+                            ToolTip="Войти" Style="{StaticResource MaterialDesignFlatDarkButton}" 
                         Width="60" >
                         <materialDesign:PackIcon x:Name="IconBtnKey"  Kind="Login" Padding="0"/>
                     </Button>

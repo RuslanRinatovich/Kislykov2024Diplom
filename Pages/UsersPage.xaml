@@ -87,7 +87,7 @@
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button VerticalAlignment="Center" x:Name="BtnEdit"  Style="{StaticResource MaterialDesignFlatButton}" 
+                            <Button VerticalAlignment="Center" x:Name="BtnEdit"  Style="{StaticResource MaterialDesignFlatDarkButton}" 
                                 Content="{materialDesign:PackIcon Kind=Edit, Size=24}"   ToolTip="Изменить"  Height="40" Click="BtnEdit_Click" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -95,7 +95,7 @@
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button VerticalAlignment="Center" x:Name="BtnDelete"  Style="{StaticResource MaterialDesignFlatButton}" 
+                            <Button VerticalAlignment="Center" x:Name="BtnDelete"  Style="{StaticResource MaterialDesignFlatDarkButton}" 
                                 Content="{materialDesign:PackIcon Kind=Delete, Size=24}"   ToolTip="Удалить"  Height="40" Click="BtnDeleteClick" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -105,7 +105,8 @@
 
 
         </DataGrid>
-        <Button x:Name="BtnAdd" Grid.Row="3" Width="100" HorizontalAlignment="Right" Margin="3 0 10 0" Style="{StaticResource MaterialDesignFlatButton}" 
+        <Button x:Name="BtnAdd" Grid.Row="3" Width="100" HorizontalAlignment="Right" Margin="3 0 10 0" 
+               Style="{StaticResource MaterialDesignFlatDarkButton}"
                  Content="{materialDesign:PackIcon Kind=Add, Size=24}"  Click="BtnAddClick"/>
 
         <TextBlock Grid.Row="3" x:Name="TextBlockCount" Width="300"  HorizontalAlignment="Left"/>

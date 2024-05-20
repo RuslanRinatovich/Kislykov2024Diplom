@@ -6,6 +6,13 @@
         xmlns:local="clr-namespace:RetrospektivaApp.Windows"
           xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
            Title="Вход"   Height="250"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
         Width="400" MinHeight="250" MinWidth="400" 
         WindowStartupLocation="CenterScreen"          ResizeMode="NoResize">
     <!--NoResize - нужен, чтобы нельзя было изменить зааднные размеры окна-->
@@ -41,15 +48,15 @@
         <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center">
             <Button Width="100" Height="30" 
                     Content="OK" 
-                    x:Name="BtnOk" 
+                    x:Name="BtnOk"  Style="{StaticResource MaterialDesignPaperDarkButton}"  
                     Click="BtnOkClick" IsDefault="True"/>
             <Button Width="100"
                     Height="30" 
-                    Content="Cancel" 
+                    Content="Cancel"  Style="{StaticResource MaterialDesignPaperDarkButton}"  
                     x:Name="BtnCancel" IsCancel="True"
                     Click="BtnCancelClick"/>
         </StackPanel>
-        <Button Grid.Row="4" Content="Регистрация" Padding="0" FontSize="10" Height="20" Click="Button_Click"/>
+        <Button Grid.Row="4" Content="Регистрация"  Style="{StaticResource MaterialDesignPaperDarkButton}"  Padding="0" FontSize="10" Height="20" Click="Button_Click"/>
         <materialDesign:DialogHost x:Name="DialogHost"
                                   BorderThickness="1">
             <materialDesign:DialogHost.DialogContent>
@@ -68,7 +75,7 @@
                     <StackPanel HorizontalAlignment="Center" Margin="10 20">
 
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button x:Name="btnOk" Click="btnOk_Click">
+                            <Button x:Name="btnOk" Click="btnOk_Click"  Style="{StaticResource MaterialDesignPaperDarkButton}"  >
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                     <materialDesign:PackIcon Kind="Check"  Margin="5" VerticalAlignment="Center"/>
                                     <TextBlock Text="Ok" VerticalAlignment="Center"/>
@@ -77,7 +84,7 @@
                             </Button>
 
 
-                            <Button x:Name="btnCancel" Click="BtnCancel_Click">
+                            <Button x:Name="btnCancel" Click="BtnCancel_Click"  Style="{StaticResource MaterialDesignPaperDarkButton}"  >
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                     <materialDesign:PackIcon Kind="Cancel"  Margin="5" VerticalAlignment="Center"/>
                                     <TextBlock Text="Cancel" VerticalAlignment="Center"/>

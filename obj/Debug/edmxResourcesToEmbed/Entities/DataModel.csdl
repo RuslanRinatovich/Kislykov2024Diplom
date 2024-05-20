@@ -62,6 +62,7 @@
     <Property Name="Price" Type="Int32" Nullable="false" />
     <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="IsSold" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Category" Relationship="Self.FK_Door_Category" FromRole="Product" ToRole="Category" />
     <NavigationProperty Name="OrderProducts" Relationship="Self.FK_OrderDoor_Door" FromRole="Product" ToRole="OrderProduct" />
     <NavigationProperty Name="Photos" Relationship="Self.FK_Photo_Product" FromRole="Product" ToRole="Photo" />
@@ -82,16 +83,6 @@
     <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Price" Type="Double" />
     <NavigationProperty Name="OrderServices" Relationship="Self.FK_OrderService_Service" FromRole="Service" ToRole="OrderService" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -213,7 +204,6 @@
     <EntitySet Name="Products" EntityType="Self.Product" />
     <EntitySet Name="Roles" EntityType="Self.Role" />
     <EntitySet Name="Services" EntityType="Self.Service" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Users" EntityType="Self.User" />
     <AssociationSet Name="FK_Door_Category" Association="Self.FK_Door_Category">
       <End Role="Category" EntitySet="Categories" />

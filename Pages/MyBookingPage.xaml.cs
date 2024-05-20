@@ -77,6 +77,11 @@ namespace RetrospektivaApp.Pages
 
                     // проверка, есть ли у товара в таблице о продажах связанные записи
                     // если да, то выбрасывается исключение и удаление прерывается
+                    foreach (var p in selected.OrderProducts)
+                    {
+                        p.Product.IsSold = false;
+                    }
+
                     DataEntities.GetContext().OrderProducts.RemoveRange(selected.OrderProducts);
                     DataEntities.GetContext().OrderServices.RemoveRange(selected.OrderServices);
 

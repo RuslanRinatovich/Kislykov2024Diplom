@@ -5,6 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RetrospektivaApp.Windows" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
       Title="Заказ"   Height="500"
         Width="600" MinHeight="400" MinWidth="400" 
         WindowStartupLocation="CenterScreen"
@@ -75,11 +82,11 @@
                                Tag="{Binding Path=Key}"
                                Margin="5 0 5 0"/>
 
-                                <Button Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{DynamicResource MaterialDesignFlatButton}"
+                                <Button Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{DynamicResource MaterialDesignFlatDarkButton}"
                                     Content="{materialDesign:PackIcon Kind=ArrowLeft}" Click="Button_Click_1" 
                                         Tag="{Binding ElementName=ImagePhoto}"
                                     />
-                                <Button Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{DynamicResource MaterialDesignFlatButton}"
+                                <Button Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{DynamicResource MaterialDesignFlatDarkButton}"
                                     Content="{materialDesign:PackIcon Kind=ArrowRight}" Click="Button_Click_2"
                                         Tag="{Binding ElementName=ImagePhoto}"
                                     />
@@ -153,11 +160,11 @@
         <StackPanel Orientation="Horizontal" Grid.Row="8"
                     Grid.ColumnSpan="2"
                     HorizontalAlignment="Center">
-            <Button Width="100" Height="30" 
+            <Button Width="100" Height="30"  Style="{StaticResource MaterialDesignPaperDarkButton}" 
                     Content="OK" 
                     x:Name="BtnOk" 
                     Click="BtnOk_Click"/>
-            <Button x:Name="BtnSavePDF"  
+            <Button x:Name="BtnSavePDF"   Style="{StaticResource MaterialDesignPaperDarkButton}" 
                     Content="Сохранить в PDF" Width="160"
                     Click="BtnSavePDF_Click"/>
         </StackPanel>
